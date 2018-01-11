@@ -23,6 +23,10 @@ There are a series of available variables you can tune at your own discretion. T
 * `MAX_RATE` - Maximum bandwidth allowed per client in bytes/sec (default: `6250000`)
 * `FTPD_BANNER` - An ftpd banner displayed when a client connects (default: `Welcome to an awesome public FTP Server`)
 
+Add `-e VARIABLE=value` to the `docker run` command to configure the launch. For example, the following line will set an unlimited rate for anonymous users:
+```
+docker run -d -p 20-21:20-21 -p 65500-65515:65500-65515 -e MAX_RATE='0' -v /tmp:/var/ftp:ro inanimate/vsftpd-anon
+```
 
 #### Notes
 
